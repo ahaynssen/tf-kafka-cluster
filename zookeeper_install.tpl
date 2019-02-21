@@ -9,7 +9,6 @@ echo ${hosted_zone_name} >> /tmp/app.txt
 az=$(curl http://169.254.169.254/latest/meta-data/placement/availability-zone)
 
 # get number from az tail value. ap-southeast-2a => a => 1
-launch_index=$(echo -n $az | tail -c 1 | tr abcdef 123456)
 private_ip=$(curl "http://169.254.169.254/latest/meta-data/local-ipv4")
 
 function install_confluent() {

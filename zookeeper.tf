@@ -10,7 +10,7 @@ resource "aws_launch_configuration" "zookeeper" {
   ]
 
   user_data                   = "${data.template_file.user_data_zookeeper.*.rendered[count.index]}"
-  associate_public_ip_address = true
+  associate_public_ip_address = false
   iam_instance_profile        = "${aws_iam_instance_profile.kafka_profile.id}"
 
   lifecycle {
@@ -29,7 +29,7 @@ resource "aws_autoscaling_group" "zk" {
   health_check_type         = "EC2"
   force_delete              = true
   launch_configuration      = "${aws_launch_configuration.zookeeper.*.id[count.index]}"
-  vpc_zone_identifier       = ["${list(element(var.subnet_ids, count.index))}"]
+  vpc_zone_identifier       = ["${list(element(var.private_subnet_ids, count.index))}"]
   default_cooldown          = 100
 
   tag {

@@ -39,7 +39,7 @@ resource "aws_autoscaling_group" "kafka_asg" {
   health_check_type         = "EC2"
   force_delete              = true
   launch_configuration      = "${aws_launch_configuration.kafka_lc.*.id[count.index]}"
-  vpc_zone_identifier       = ["${list(element(var.subnet_ids, count.index))}"]
+  vpc_zone_identifier       = ["${list(element(var.private_subnet_ids, count.index))}"]
   default_cooldown          = 100
   load_balancers            = ["${aws_elb.kafka.id}"]
 
