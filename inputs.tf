@@ -15,7 +15,7 @@ variable "region" {
   default = "us-east-1"
 }
 
-variable "subnet_ids" {
+variable "private_subnet_ids" {
   type = "list"
 }
 
@@ -27,7 +27,6 @@ variable "availability_zones" {
   type = "list"
 }
 
-variable "company_id" {}
 variable "environment" {}
 
 variable "amis" {

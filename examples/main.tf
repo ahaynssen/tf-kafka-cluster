@@ -1,6 +1,5 @@
 module "kafka" {
   source = "../"
-  company_id = ""
   environment = ""
 
   availability_zones = ""
@@ -8,7 +7,7 @@ module "kafka" {
 
   # networking
   vpc_id = ""
-  subnet_ids = ""
+  private_subnet_ids = ""
   public_subnet_ids = ""
   ingress_allowed_cidrs = ""
 
