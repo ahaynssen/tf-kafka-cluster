@@ -60,10 +60,4 @@ resource "aws_autoscaling_group" "kafka_asg" {
     value               = "${var.environment}"
     propagate_at_launch = true
   }
-
-  tag {
-    key                 = "TechnicalContact"
-    value               = "jsand@jumptech.com"
-    propagate_at_launch = true
-  }
 }
